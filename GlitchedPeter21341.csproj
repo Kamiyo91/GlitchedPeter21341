@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;NOMP3</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -26,11 +26,29 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;NOMP3</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\Users\Kamiyo\Downloads\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="KamiyoStaticBLL">
+      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticBLL\bin\Debug\KamiyoStaticBLL.dll</HintPath>
+    </Reference>
+    <Reference Include="KamiyoStaticUtil">
+      <HintPath>..\..\KamiyoStaticDll\KamiyoStaticUtil\bin\Debug\KamiyoStaticUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>..\..\Omori-Om21341\OmoriHarmony-Om21341\bin\Debug\MonoMod.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,14 +57,67 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\PeterModParameters.cs" />
+    <Compile Include="Buffs\BattleUnitBuf_FamilyGuyEgo_21341.cs" />
+    <Compile Include="Buffs\BattleUnitBuf_ShimmeringPeter_21341.cs" />
+    <Compile Include="Cards\DiceCardSelfAbility_FamilyGuyEgo_21341.cs" />
+    <Compile Include="EnemyTeamStageManager_Peter_21341.cs" />
+    <Compile Include="GlitchedPeter21341ModInit.cs" />
+    <Compile Include="GlitchedPeter_21341MapManager.cs" />
+    <Compile Include="Peter\Passives\PassiveAbility_Chris_21341.cs" />
+    <Compile Include="Peter\Passives\PassiveAbility_Lois_21341.cs" />
+    <Compile Include="Peter\Passives\PassiveAbility_Meg_21341.cs" />
+    <Compile Include="Peter\Passives\PassiveAbility_PeterEgo_21341.cs" />
+    <Compile Include="Peter\Passives\PassiveAbility_PeterNpc_21341.cs" />
+    <Compile Include="Peter\Passives\PassiveAbility_PeterPlayer_21341.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util21341\CustomMapUtility\Assemblies\CustomMapUtility.cs" />
+    <Compile Include="Util21341\Extensions\MechUtil_Peter.cs" />
+    <Compile Include="Util21341\Extensions\NpcMechUtil_Peter.cs" />
+    <Compile Include="Util21341\MapUtil.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Util21341\CustomMapUtility\Resource\CustomAudio\README.md" />
+    <None Include="Util21341\CustomMapUtility\Resource\Stage\README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="Peter\" />
-    <Folder Include="Util21341\" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\Background.png" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\Floor.png" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\FloorUnder.png" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\Formation Position Markers.png" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\Scratch1.png" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\Scratch2.png" />
+    <Content Include="Util21341\CustomMapUtility\Resource\Stage\Template\Scratch3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
