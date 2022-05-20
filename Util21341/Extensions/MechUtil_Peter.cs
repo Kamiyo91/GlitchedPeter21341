@@ -9,8 +9,7 @@ namespace GlitchedPeter21341.Util21341.Extensions
     public class MechUtil_Peter : MechUtilBase
     {
         private readonly MechUtilBaseModel _model;
-        public int Sacrifices;
-
+        private int Sacrifices;
         public MechUtil_Peter(MechUtilBaseModel model) : base(model)
         {
             _model = model;

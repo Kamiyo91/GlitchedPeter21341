@@ -48,7 +48,6 @@ namespace GlitchedPeter21341.Peter.Passives
             else
                 owner.view.ChangeHeight(250);
         }
-
         public override void OnStartBattle()
         {
             UnitUtil.RemoveImmortalBuff(owner);

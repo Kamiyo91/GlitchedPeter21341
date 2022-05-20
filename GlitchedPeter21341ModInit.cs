@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using GlitchedPeter21341.BLL;
+using GlitchedPeter21341.Buffs;
 using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.Utils;
 using MonoMod.Utils;
@@ -68,6 +69,11 @@ namespace GlitchedPeter21341
                         new LorId(PeterModParameters.PackageId, 10000001), new LorId(PeterModParameters.PackageId, 1)
                     },
                     "PeterPhase1_21341")
+            });
+            ModParameters.SkinsCustomHeights.AddRange(new Dictionary<string, int>
+            {
+                {"PeterPhase1_21341",250},
+                {"PeterPhase2_21341",500}
             });
         }
     }
