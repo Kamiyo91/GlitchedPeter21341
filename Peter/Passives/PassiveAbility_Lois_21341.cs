@@ -21,7 +21,7 @@ namespace GlitchedPeter21341.Peter.Passives
 
         public override void OnRoundStart()
         {
-            if (_random.Next(0, 100) >= 15) return;
+            if (_random.Next(0, 100) >= 25) return;
             var unitList = BattleObjectManager.instance.GetAliveList(UnitUtil.ReturnOtherSideFaction(owner.faction));
             if (unitList.Any())
                 RandomUtil.SelectOne(unitList).bufListDetail
