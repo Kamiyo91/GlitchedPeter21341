@@ -24,7 +24,8 @@ namespace GlitchedPeter21341.Peter.Passives
             if (_random.Next(0, 100) >= 50) return;
             var unitList = BattleObjectManager.instance.GetAliveList(UnitUtil.ReturnOtherSideFaction(owner.faction));
             if (unitList.Any())
-                RandomUtil.SelectOne(unitList).bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Vulnerable, 5, owner);
+                RandomUtil.SelectOne(unitList).bufListDetail
+                    .AddKeywordBufThisRoundByEtc(KeywordBuf.Vulnerable, 5, owner);
         }
     }
 }

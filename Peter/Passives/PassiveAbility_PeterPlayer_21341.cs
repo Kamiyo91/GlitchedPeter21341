@@ -2,7 +2,6 @@
 using System.Linq;
 using GlitchedPeter21341.BLL;
 using GlitchedPeter21341.Buffs;
-using GlitchedPeter21341.Cards;
 using GlitchedPeter21341.Util21341.Extensions;
 using KamiyoStaticBLL.Enums;
 using KamiyoStaticBLL.MechUtilBaseModels;
@@ -46,6 +45,8 @@ namespace GlitchedPeter21341.Peter.Passives
             });
             if (UnitUtil.CheckSkinProjection(owner))
                 _util.DoNotChangeSkinOnEgo();
+            else
+                owner.view.ChangeHeight(250);
         }
 
         public override void OnStartBattle()
@@ -85,12 +86,12 @@ namespace GlitchedPeter21341.Peter.Passives
 
         public override int GetMaxHpBonus()
         {
-            return 10 * _util.GetSacrifices();
+            return 10 * _util?.GetSacrifices() ?? 0;
         }
 
         public override int GetMaxBpBonus()
         {
-            return 10 * _util.GetSacrifices();
+            return 10 * _util?.GetSacrifices() ?? 0;
         }
     }
 }

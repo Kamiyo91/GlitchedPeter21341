@@ -2,6 +2,8 @@
 using CustomMapUtility;
 using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.Utils;
+using Sound;
+using UnityEngine;
 
 namespace GlitchedPeter21341.Util21341
 {
@@ -32,6 +34,21 @@ namespace GlitchedPeter21341.Util21341
                 StageType.Creature) return;
             CustomMapHandler.RemoveCustomEgoMapByAssimilation(mapName);
             MapStaticUtil.RemoveValueInAddedMap(mapName);
+        }
+
+        public static void PlayScreamEffect(BattleUnitModel owner)
+        {
+            var gameObject = Util.LoadPrefab("Battle/CreatureEffect/New_IllusionCardFX/6_G/FX_IllusionCard_6_G_Shout");
+            if (gameObject != null)
+                if (owner?.view != null)
+                {
+                    gameObject.transform.parent = owner.view.camRotationFollower;
+                    gameObject.transform.localPosition = Vector3.zero;
+                    gameObject.transform.localScale = Vector3.one;
+                    gameObject.transform.localRotation = Quaternion.identity;
+                }
+
+            SingletonBehavior<SoundEffectManager>.Instance.PlayClip("Creature/Danggo_Lv2_Shout");
         }
     }
 }

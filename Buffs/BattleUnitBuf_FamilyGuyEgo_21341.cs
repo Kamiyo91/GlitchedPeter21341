@@ -4,6 +4,8 @@ namespace GlitchedPeter21341.Buffs
 {
     public class BattleUnitBuf_FamilyGuyEgo_21341 : BattleUnitBuf
     {
+        public override bool isAssimilation => true;
+
         public override void BeforeRollDice(BattleDiceBehavior behavior)
         {
             behavior.ApplyDiceStatBonus(new DiceStatBonus { power = 1 });

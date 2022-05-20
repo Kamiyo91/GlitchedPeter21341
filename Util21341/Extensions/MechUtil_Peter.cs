@@ -19,8 +19,9 @@ namespace GlitchedPeter21341.Util21341.Extensions
 
         public override void EgoActive()
         {
-            _model.Owner.UnitData.unitData.SetTempName(ModParameters.EffectTexts
-                .FirstOrDefault(x => x.Key.Equals("PeterEgoName_21341")).Value.Name);
+            if (!string.IsNullOrEmpty(_model.SkinName))
+                _model.Owner.UnitData.unitData.SetTempName(ModParameters.EffectTexts
+                    .FirstOrDefault(x => x.Key.Equals("PeterEgoName_21341")).Value.Name);
             base.EgoActive();
             foreach (var unit in BattleObjectManager.instance.GetAliveList(_model.Owner.faction)
                          .Where(x => x != _model.Owner))
@@ -29,12 +30,14 @@ namespace GlitchedPeter21341.Util21341.Extensions
                 Sacrifices++;
             }
 
-            _model.Owner.view.ChangeHeight(500);
+            if (!string.IsNullOrEmpty(_model.SkinName))
+                _model.Owner.view.ChangeHeight(500);
+            CameraFilterUtil.EarthQuake(0.08f, 0.02f, 50f, 0.3f);
+            MapUtil.PlayScreamEffect(_model.Owner);
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 2));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 3));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 4));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 5));
-            _model.Owner.passiveDetail.OnCreated();
             ChangeDeck();
         }
 

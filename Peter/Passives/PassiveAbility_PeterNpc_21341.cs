@@ -22,6 +22,7 @@ namespace GlitchedPeter21341.Peter.Passives
 
         public override void OnWaveStart()
         {
+            owner.view.ChangeHeight(250);
             _util = new NpcMechUtil_Peter(new NpcMechUtilBaseModel
             {
                 Owner = owner,

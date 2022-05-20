@@ -4,7 +4,6 @@ using GlitchedPeter21341.Buffs;
 using KamiyoStaticBLL.MechUtilBaseModels;
 using KamiyoStaticBLL.Models;
 using KamiyoStaticUtil.BaseClass;
-using UnityEngine;
 
 namespace GlitchedPeter21341.Util21341.Extensions
 {
@@ -31,6 +30,8 @@ namespace GlitchedPeter21341.Util21341.Extensions
                 .FirstOrDefault(x => x.Key.Equals("PeterEgoName_21341")).Value.Name);
             base.EgoActive();
             _model.Owner.view.ChangeHeight(500);
+            CameraFilterUtil.EarthQuake(0.08f, 0.02f, 50f, 0.3f);
+            MapUtil.PlayScreamEffect(_model.Owner);
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 2));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 3));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 4));
