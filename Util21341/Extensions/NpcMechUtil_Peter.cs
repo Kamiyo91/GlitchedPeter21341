@@ -20,6 +20,10 @@ namespace GlitchedPeter21341.Util21341.Extensions
         {
             if (_model.Owner.hp > _model.MechHp || _model.Phase > 0) return;
             _model.Phase++;
+            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 2));
+            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 3));
+            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 4));
+            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 5));
             ForcedEgo();
         }
 
@@ -32,10 +36,6 @@ namespace GlitchedPeter21341.Util21341.Extensions
             _model.Owner.view.ChangeHeight(500);
             CameraFilterUtil.EarthQuake(0.08f, 0.02f, 50f, 0.3f);
             MapUtil.PlayScreamEffect(_model.Owner);
-            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 2));
-            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 3));
-            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 4));
-            _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 5));
             ChangeDeck();
         }
 

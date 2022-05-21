@@ -10,6 +10,7 @@ namespace GlitchedPeter21341.Util21341.Extensions
     {
         private readonly MechUtilBaseModel _model;
         private int Sacrifices;
+
         public MechUtil_Peter(MechUtilBaseModel model) : base(model)
         {
             _model = model;
@@ -33,11 +34,21 @@ namespace GlitchedPeter21341.Util21341.Extensions
                 _model.Owner.view.ChangeHeight(500);
             CameraFilterUtil.EarthQuake(0.08f, 0.02f, 50f, 0.3f);
             MapUtil.PlayScreamEffect(_model.Owner);
+            ChangeDeck();
+        }
+
+        public override void OnUseExpireCard(LorId cardId)
+        {
+            if (!_model.HasEgo || _model.EgoCardId != cardId) return;
+            if (_model.EgoCardId != null) _model.Owner.personalEgoDetail.RemoveCard(_model.EgoCardId);
+            _model.Owner.breakDetail.ResetGauge();
+            _model.Owner.breakDetail.RecoverBreakLife(1, true);
+            _model.Owner.breakDetail.nextTurnBreak = false;
+            _model.EgoActivated = true;
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 2));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 3));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 4));
             _model.Owner.passiveDetail.AddPassive(new LorId(PeterModParameters.PackageId, 5));
-            ChangeDeck();
         }
 
         private void ChangeDeck()
