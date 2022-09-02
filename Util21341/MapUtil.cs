@@ -34,6 +34,7 @@ namespace GlitchedPeter21341.Util21341
                 StageType.Creature) return;
             CustomMapHandler.RemoveCustomEgoMapByAssimilation(mapName);
             MapStaticUtil.RemoveValueInAddedMap(mapName);
+            Singleton<StageController>.Instance.CheckMapChange();
         }
 
         public static void PlayScreamEffect(BattleUnitModel owner)
